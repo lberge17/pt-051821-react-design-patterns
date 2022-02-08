@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Client Side Routing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objectives: 
+- Understand Client Side Routing OUTSIDE the context of React
+- Understand the mechanics of using it within react with react-router-dom
+- Understand the advanced abilities of react-router-dom such as switch, passing props to components, exact path vs path, etc
 
-## Available Scripts
 
-In the project directory, you can run:
+### What is client side routing?
 
-### `npm start`
+- First of all, whats server side routing?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- So, what do you think client side routing is?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Benefits to Client side routing?
 
-### `npm test`
+- Benefits to Server side routing?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Client side is not something specific to react.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Let's look at how this acheived with JS: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+There are 2 things I can call:
+```js
+    window.location.href = '/path'
+    //or window.location = '/path
+    
+```
+The above DOES fire off an HTTP request to that route UNLESS the only change is to the hash (e.g. `www.site.com/todos#some-anchor`)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/> 
 
-### `npm run eject`
+OR 
+<br/> 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I can do the following: 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+    window.history.pushState(
+        {state: 'info'},
+        'page title (mostly unused)',
+        '/new/path'
+    )
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This does NOT fire off a new HTTP request no matter what, and allows me to save state to the session
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br/>
 
-## Learn More
+## Ok, so how does this work in React??
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Most of this is made for us already, so we just need to know the API of the components that do all the above dirty work for us!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. [V6 Docs (new)](https://reactrouter.com/docs/en/v6/getting-started/overview)
+2. [V5 Docs (in curriculum)](https://v5.reactrouter.com/)
 
-### Code Splitting
+## Key Concepts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Router Props: match (access params), history, and location
+- Switch Component (or with v6 Routes component)
+- Route Component
+- Link and NavLink Components
