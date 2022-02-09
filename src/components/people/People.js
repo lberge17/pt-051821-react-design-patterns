@@ -4,6 +4,7 @@ import PersonForm from './PersonForm';
 
 export default function People() {
     const [people, setPeople] = useState([])
+    useState()
 
     useEffect(() => {
         fetch("https://swapi.dev/api/people")

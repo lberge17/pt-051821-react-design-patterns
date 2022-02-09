@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
+
 export default function Navbar({setPage}) {
   return <div className="nav">
-      <button onClick={e => setPage("Planets")}>Planets</button>
-      <button onClick={e => setPage("Starships")}>Starships</button>
-      <button onClick={e => setPage("People")}>People</button>
+      <Link to="/planets">Planets</Link>
+      <Link to="/starships">Starships</Link>
+      <Link to="/people">People</Link>
   </div>;
 }

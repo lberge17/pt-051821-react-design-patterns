@@ -9,12 +9,18 @@
 ### What is client side routing?
 
 - First of all, whats server side routing?
+    - GET/POST/PATCH/PUT/DELETE
+    - HTTP Requests
 
 - So, what do you think client side routing is?
+    - JavaScript to dynamically change url 
 
 - Benefits to Client side routing?
+    - sharing links, while routing is faster
 
 - Benefits to Server side routing?
+    - SEO, heavier logic
+    - initial load time faster
 
 
 ### Client side is not something specific to react.

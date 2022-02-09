@@ -4,12 +4,12 @@ import { useState } from 'react'
 import Pages from './components/Pages';
 
 function App() {
-  const [page, setPage] = useState("Planets") //#=> ["Planets", f(){}]
+  // const [page, setPage] = useState("Planets") //#=> ["Planets", f(){}]
 
   return (
     <div className="App">
-      <Navbar setPage={setPage} />
-      <Pages page={page}/>
+      <Navbar />
+      <Pages />
     </div>
   );
 }
